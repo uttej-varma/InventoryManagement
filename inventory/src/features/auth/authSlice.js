@@ -118,7 +118,7 @@ export const authReducer = createSlice({
         state.status = 'idle';
         state.userChecked = true
         state.loggedInUserToken=null;
-        state.error=error.message;
+        //state.error=error.message;
       });
   },
 });

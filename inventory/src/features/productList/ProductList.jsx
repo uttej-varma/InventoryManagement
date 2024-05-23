@@ -1,6 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import ErrorBoundary from "../commonComponents/errorBoundary";
 import { BallTriangle } from "react-loader-spinner";
 import {
   selectAllProducts,
@@ -28,13 +27,13 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { ITEMS_PER_PAGE, discountedPrice } from "../../app/constants";
 //import { increment, incrementAsync, selectCount } from "./productSlice";
 import { Pagination } from "../commonComponents/Pagination";
-// const sortOptions = [
-//   { name: "Best Rating", sort: "rating", order: "desc", current: false },
-//   { name: "Price: Low to High", sort: "price", order: "asc", current: false },
-//   { name: "Price: High to Low", sort: "price", order: "desc", current: false },
-//   { name: "clearSort",sort:"",order:"",current:false}
-// ];
-const sortOptions=''
+const sortOptions = [
+  { name: "Best Rating", sort: "rating", order: "desc", current: false },
+  { name: "Price: Low to High", sort: "price", order: "asc", current: false },
+  { name: "Price: High to Low", sort: "price", order: "desc", current: false },
+  { name: "clearSort",sort:"",order:"",current:false}
+];
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -142,8 +141,7 @@ export default function ProductList() {
                       leaveFrom="transform opacity-100 scale-100"
                       leaveTo="transform opacity-0 scale-95"
                     >
-                            <ErrorBoundary fallback="Error">
-                            <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
+                             <Menu.Items className="absolute right-0 z-10 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none">
                         <div className="py-1">
                           {sortOptions.map((option) => (
                             <Menu.Item key={option.name}>
@@ -165,7 +163,6 @@ export default function ProductList() {
                           ))}
                         </div>
                       </Menu.Items>
-                            </ErrorBoundary>
                       
                     </Transition>
                   </Menu>
