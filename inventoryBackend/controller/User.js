@@ -10,7 +10,8 @@ exports.fetchLoggedInUser = async (req, res) => {
         id: user.id,
         email: user.email,
         role: user.role,
-        imageUrl:user.imageUrl
+        imageUrl:user.imageUrl,
+        name:user.name
       });
   } catch (e) {
     res.status(400).json({
